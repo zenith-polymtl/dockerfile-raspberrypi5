@@ -13,9 +13,11 @@ services:
       - ROS_DOMAIN_ID=69
       - ROS_LOCALHOST_ONLY=0
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - FASTRTPS_DEFAULT_PROFILES_FILE=/connections/fastrtps_profile.xml
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./ros2_ws:/ros2_ws
+      - ./connections:/connections
       - /dev/ttyUSB0:/dev/ttyUSB0
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0

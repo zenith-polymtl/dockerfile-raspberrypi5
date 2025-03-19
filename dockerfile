@@ -119,6 +119,10 @@ RUN apt-get update && apt-get install -y \
   libxcb-xkb1 \
   libxkbcommon-x11-0
 
+RUN apt-get install -y \
+  iputils-ping \
+  iproute2 \
+  apt-file
 
 # Set up the entrypoint
 COPY ./ros_entrypoint.sh /
