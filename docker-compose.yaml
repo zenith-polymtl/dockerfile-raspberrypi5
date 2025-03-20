@@ -7,13 +7,10 @@ services:
       dockerfile: Dockerfile
     container_name: ros2-mission
     environment:
-      - DISPLAY=:1  # Change this to match your VNC server's display number
-      - QT_X11_NO_MITSHM=1
       - LIBGL_ALWAYS_INDIRECT=1
       - ROS_DOMAIN_ID=69
       - ROS_LOCALHOST_ONLY=0
-      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      - FASTRTPS_DEFAULT_PROFILES_FILE=/connections/fastrtps_profile.xml
+      - RMWIMPLEMENTATION=rmw_cyclonedds_cpp
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./ros2_ws:/ros2_ws

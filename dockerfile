@@ -124,6 +124,8 @@ RUN apt-get install -y \
   iproute2 \
   apt-file
 
+RUN sudo apt install ros-humble-rmw-cyclonedds-cpp
+
 # Set up the entrypoint
 COPY ./ros_entrypoint.sh /
 RUN chmod +x /ros_entrypoint.sh
