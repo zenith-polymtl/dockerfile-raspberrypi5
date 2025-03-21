@@ -11,8 +11,6 @@ sudo apt-get install -y raspberrypi-kernel-headers
 sudo modprobe ch341
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
-sudo apt-get install -y xauth x11-xserver-utils
-sudo systemctl restart ssh
    ```
 **Please restart the pi after the install**
 ## 2. Install docker compose:
@@ -67,10 +65,8 @@ Inside the container:
 ```bash
 
 cd /ros2_ws
-colcon build
+colcon build --packages-up-to mission
 source install/setup.bash
-ros2 launch start_mission start.launch.py
-
 ros2 run mission winch
 ```
 ## To use VNC for graphical interface:
