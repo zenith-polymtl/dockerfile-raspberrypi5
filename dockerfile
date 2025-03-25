@@ -124,7 +124,6 @@ RUN apt-get install -y \
   iproute2 \
   apt-file
 
-RUN sudo apt install ros-humble-rmw-cyclonedds-cpp
 
 # Set up the entrypoint
 COPY ./ros_entrypoint.sh /
@@ -133,6 +132,9 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Verify Python and pip versions
 RUN python3 --version && pip --version
+
+RUN apt-get update && apt-get install -y ros-humble-rmw-cyclonedds-cpp\
+  ros-humble-demo-nodes-cpp
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 

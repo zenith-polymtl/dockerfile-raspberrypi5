@@ -78,3 +78,16 @@ And use this command to run before launching ros2 script
 export QT_QPA_PLATFORM=vnc
 ros2 run mission control
 ```
+
+nc -zvu 192.168.30.247 11811
+nc -zvu 192.168.30.247 11869
+
+./start_discovery_server.sh
+
+# In terminal 1
+source /connections/setup_discovery_client.sh
+ros2 topic pub /test_topic std_msgs/msg/String "data: test message" -r 1
+
+# In terminal 2
+source /connections/setup_discovery_client.sh
+ros2 topic echo /test_topic
