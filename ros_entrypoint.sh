@@ -18,7 +18,6 @@ if [ ! -d "/ros2_ws/.git" ]; then
   pip3 install -r requirements.txt
 else
   cd /ros2_ws
-  git pull
 fi
 
 # # Start FastDDS Discovery Server - Added this section
