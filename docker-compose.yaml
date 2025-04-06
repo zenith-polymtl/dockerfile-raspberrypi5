@@ -17,6 +17,7 @@ services:
       - /dev/ttyUSB0:/dev/ttyUSB0
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/gpiochip0:/dev/gpiochip0
     ipc: host
     privileged: true
     tty: true
