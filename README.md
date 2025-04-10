@@ -28,6 +28,7 @@ docker-compose --version
 ```bash
 git clone https://github.com/zenith-polymtl/dockerfile-raspberrypi5.git
 cd dockerfile-raspberrypi5
+git clone https://github.com/zenith-polymtl/ros2-mission-2.git ros2_ws
    ```
 
 
