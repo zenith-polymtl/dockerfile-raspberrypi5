@@ -73,3 +73,6 @@ colcon build --packages-up-to mission
 source install/setup.bash
 ros2 run mission (insert package here)
 ```
+
+## Fix permissions from outside the docker:
+sudo chown -R $(whoami):$(whoami) ros2_ws
