@@ -71,5 +71,5 @@ Inside the container:
 cd /ros2_ws
 colcon build --packages-up-to mission
 source install/setup.bash
-ros2 run mission winch
+ros2 run mission (insert package here)
 ```

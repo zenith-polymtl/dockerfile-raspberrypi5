@@ -82,14 +82,6 @@ RUN apt-get update && apt-get install -y \
 # Initialize rosdep
 RUN rosdep init && rosdep update
 
-# Install canusb module
-RUN mkdir -p /opt/canusb && \
-    cd /opt/canusb && \
-    git clone https://github.com/kobolt/usb-can . && \
-    gcc -o canusb canusb.c && \
-    # Add to PATH
-    ln -sf /opt/canusb/canusb /usr/local/bin/canusb
-
 # Create script to check for CH341 devices
 RUN echo '#!/bin/bash\n\
 echo "Checking for CH341 USB device..."\n\
@@ -127,6 +119,9 @@ RUN apt-get install -y \
   iproute2 \
   apt-file
 
+RUN apt-get update && apt-get install -y ros-humble-rmw-cyclonedds-cpp\
+  ros-humble-demo-nodes-cpp
+
 
 # Set up the entrypoint
 COPY ./ros_entrypoint.sh /
@@ -136,8 +131,6 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 # Verify Python and pip versions
 RUN python3 --version && pip --version
 
-RUN apt-get update && apt-get install -y ros-humble-rmw-cyclonedds-cpp\
-  ros-humble-demo-nodes-cpp
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
