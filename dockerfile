@@ -119,6 +119,13 @@ RUN apt-get install -y \
   iproute2 \
   apt-file
 
+RUN apt-get update && apt-get install -y python3-colcon-common-extensions \
+  ros-humble-mavros \
+  ros-humble-mavros-extras \
+  ros-humble-mavlink \
+  geographiclib-tools
+
+
 RUN apt-get update && apt-get install -y ros-humble-rmw-cyclonedds-cpp\
   ros-humble-demo-nodes-cpp
 
