@@ -75,4 +75,6 @@ ros2 run mission (insert package here)
 ```
 
 ## Fix permissions from outside the docker:
+```bash
 sudo chown -R $(whoami):$(whoami) ros2_ws
+```
