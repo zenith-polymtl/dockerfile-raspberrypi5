@@ -127,7 +127,8 @@ RUN apt-get update && apt-get install -y python3-colcon-common-extensions \
 
 
 RUN apt-get update && apt-get install -y ros-humble-rmw-cyclonedds-cpp\
-  ros-humble-demo-nodes-cpp
+  ros-humble-demo-nodes-cpp\
+  python3-gpiozero
 
 
 # Set up the entrypoint
@@ -137,6 +138,9 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Verify Python and pip versions
 RUN python3 --version && pip --version
+
+RUN groupadd --system gpio && usermod -aG gpio root
+
 
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
