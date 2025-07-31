@@ -1,4 +1,4 @@
-# dockerfile-raspberrypi5
+# dockerfile-raspberrypi5 (DEPRECATED)
 
 How to use:
 
